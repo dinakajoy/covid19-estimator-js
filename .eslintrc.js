@@ -17,6 +17,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "linebreak-style": ["error", "windows"],
     "comma-dangle": ["error", "never"],
     "no-param-reassign": ["error", { "props": false }]
   },
