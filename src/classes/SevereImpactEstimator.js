@@ -1,4 +1,5 @@
-class SevereImpactEst {
+/* eslint-disable no-console */
+class SevereImpactEstimator {
   constructor(periodType, timeToElapse, reportedCases) {
     this.periodType = periodType;
     this.timeToElapse = timeToElapse;
@@ -6,6 +7,9 @@ class SevereImpactEst {
   }
 
   requestedTime() {
+    console.log(`periodType = ${this.periodType}`);
+    console.log(`timeToElapse = ${this.timeToElapse}`);
+    console.log(`reportedCases = ${this.reportedCases}`);
     let days;
     if (this.periodType === 'days') {
       if (this.timeToElapse > 2) {
@@ -33,7 +37,8 @@ class SevereImpactEst {
 
   infectionsByRequestedTime() {
     const lengthInDays = this.requestedTime();
+    console.log(lengthInDays);
     return (this.reportedCases * 10) * (2 ** lengthInDays);
   }
 }
-export default SevereImpactEst;
+export default SevereImpactEstimator;
