@@ -7,16 +7,16 @@ const covid19ImpactEstimator = (data) => {
   const impact = new ImpactEstimator(periodType, timeToElapse, reportedCases);
   const severeImpact = new SevereImpactEstimator(periodType, timeToElapse, reportedCases);
   return {
-    estimate: {
-      impact: {
-        currentlyInfected: impact.currentlyInfected(),
-        infectionsByRequestedTime: impact.infectionsByRequestedTime()
-      },
-      severeImpact: {
-        currentlyInfected: severeImpact.currentlyInfected(),
-        infectionsByRequestedTime: severeImpact.infectionsByRequestedTime()
-      }
+    // estimate: {
+    impact: {
+      currentlyInfected: impact.currentlyInfected(),
+      infectionsByRequestedTime: impact.infectionsByRequestedTime()
+    },
+    severeImpact: {
+      currentlyInfected: severeImpact.currentlyInfected(),
+      infectionsByRequestedTime: severeImpact.infectionsByRequestedTime()
     }
+    // }
   };
 };
 

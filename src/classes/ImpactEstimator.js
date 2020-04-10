@@ -7,9 +7,6 @@ class ImpactEstimator {
   }
 
   requestTime() {
-    console.log(`periodType = ${this.periodType}`);
-    console.log(`timeToElapse = ${this.timeToElapse}`);
-    console.log(`reportedCases = ${this.reportedCases}`);
     let days;
     if (this.periodType === 'days') {
       if (this.timeToElapse > 2) {
@@ -28,7 +25,6 @@ class ImpactEstimator {
       const toDays = this.timeToElapse * 30;
       days = Math.floor(toDays / 3);
     }
-    console.log(`days - ${days}`);
     return days;
   }
 
@@ -38,9 +34,6 @@ class ImpactEstimator {
 
   infectionsByRequestedTime() {
     const lengthInDays = this.requestTime();
-    console.log(`daysDivBy3 - ${lengthInDays}`);
-    console.log(`daysDivBy3MulBy2 - ${2 ** lengthInDays}`);
-    console.log(`(IBRT - ${this.reportedCases} * 10) * (2 ** ${lengthInDays})`);
     return (this.reportedCases * 10) * (2 ** lengthInDays);
   }
 }
