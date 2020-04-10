@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 class ImpactEstimator {
   constructor(periodType, timeToElapse, reportedCases) {
     this.periodType = periodType;
@@ -7,9 +6,6 @@ class ImpactEstimator {
   }
 
   requestTime() {
-    console.log(`periodType = ${this.periodType}`);
-    console.log(`timeToElapse = ${this.timeToElapse}`);
-    console.log(`reportedCases = ${this.reportedCases}`);
     let days;
     if (this.periodType === 'days') {
       if (this.timeToElapse > 2) {
@@ -37,7 +33,6 @@ class ImpactEstimator {
 
   infectionsByRequestedTime() {
     const lengthInDays = this.requestTime();
-    console.log(lengthInDays);
     return (this.reportedCases * 10) * (2 ** lengthInDays);
   }
 }
