@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 class ImpactEstimator {
   constructor(reportedCases) {
     this.reportedCases = reportedCases;

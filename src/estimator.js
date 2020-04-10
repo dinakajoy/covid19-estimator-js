@@ -1,5 +1,4 @@
 // const covid19ImpactEstimator = (data) => data;
-
 import ImpactEstimator from './classes/ImpactEstimator';
 import SevereImpactEstimator from './classes/SevereImpactEstimator';
 
