@@ -8,7 +8,8 @@ class ImpactEstimator {
   }
 
   infectionsByRequestedTime() {
-    return this.currentlyInfected * (2 ** 9);
+    // infenction rate is estimated based on the fact that currentlyInfected doubles every 3 days
+    return (this.reportedCases * 10) * (2 ** 9);
   }
 }
 export default ImpactEstimator;
