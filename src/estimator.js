@@ -6,7 +6,7 @@ const covid19ImpactEstimator = (data) => {
   const { periodType, timeToElapse, reportedCases } = data;
   const impact = new ImpactEstimator(periodType, timeToElapse, reportedCases);
   const severeImpact = new SevereImpactEstimator(periodType, timeToElapse, reportedCases);
-  return JSON.stringify({
+  return {
     estimate: {
       impact: {
         currentlyInfected: impact.currentlyInfected(),
@@ -17,7 +17,7 @@ const covid19ImpactEstimator = (data) => {
         infectionsByRequestedTime: severeImpact.infectionsByRequestedTime()
       }
     }
-  });
+  };
 };
 
 export default covid19ImpactEstimator;
