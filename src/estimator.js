@@ -1,10 +1,10 @@
 // const covid19ImpactEstimator = (data) => data;
 import ImpactEstimator from './classes/ImpactEstimator';
-import SevereImpactEstimator from './classes/SevereImpactEstimator';
+import SevereImpactEst from './classes/SevereImpactEstimator';
 
 const covid19ImpactEstimator = (data) => {
-  const impact = new ImpactEstimator(data.reportedCases);
-  const severeImpact = new SevereImpactEstimator(data.reportedCases);
+  const impact = new ImpactEstimator(data.periodType, data.timeToElapse, data.reportedCases);
+  const severeImpact = new SevereImpactEst(data.periodType, data.timeToElapse, data.reportedCases);
   return JSON.stringify({
     estimate: {
       impact: {

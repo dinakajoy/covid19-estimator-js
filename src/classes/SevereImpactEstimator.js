@@ -1,4 +1,4 @@
-class SevereImpactEstimator {
+class SevereImpactEst {
   constructor(periodType, timeToElapse, reportedCases) {
     this.periodType = periodType;
     this.timeToElapse = timeToElapse;
@@ -36,4 +36,4 @@ class SevereImpactEstimator {
     return (this.reportedCases * 10) * (2 ** lengthInDays);
   }
 }
-export default SevereImpactEstimator;
+export default SevereImpactEst;
