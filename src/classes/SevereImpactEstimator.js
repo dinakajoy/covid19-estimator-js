@@ -39,14 +39,13 @@ class SevereImpactEstimator {
   }
 
   severeCasesByRequestedTime() {
-    const positiveCases = this.infectionsByRequestedTime();
-    const percent = 15 / 100;
-    return Math.trunc(percent * positiveCases);
+    const severePositiveCases = (15 / 100) * this.infectionsByRequestedTime();
+    return Math.trunc(severePositiveCases);
   }
 
   remainingBedsByRequestedTime() {
-    const percent = 35 / 100;
-    return Math.trunc(percent * this.totalHospitalBeds);
+    const remainingBeds = (35 / 100) * this.totalHospitalBeds;
+    return Math.trunc(remainingBeds);
   }
 
   hospitalBedsByRequestedTime() {
