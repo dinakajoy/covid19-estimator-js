@@ -16,13 +16,11 @@ class ImpactEstimator {
       } else {
         days = 1;
       }
-    }
-    if (this.periodType === 'weeks') {
+    } else if (this.periodType === 'weeks') {
       // Converts timeToElapse in weeks to days
       const toDays = this.timeToElapse * 7;
       days = Math.trunc(toDays / 3);
-    }
-    if (this.periodType === 'months') {
+    } else if (this.periodType === 'months') {
       // Converts timeToElapse in months to days
       const toDays = this.timeToElapse * 30;
       days = Math.trunc(toDays / 3);
@@ -40,22 +38,25 @@ class ImpactEstimator {
   }
 
   severeCasesByRequestedTime() {
-    const severePositiveCases = 0.15 * this.infectionsByRequestedTime();
+    const severePositiveCases = this.infectionsByRequestedTime() * 0.15;
     return Math.trunc(severePositiveCases);
   }
 
   remainingBedsByRequestedTime() {
-    const remainingBeds = 0.35 * this.totalHospitalBeds;
+    const remainingBeds = this.totalHospitalBeds * 0.35;
     return Math.trunc(remainingBeds);
   }
 
   hospitalBedsByRequestedTime() {
+    let answer;
     console.log(this.remainingBedsByRequestedTime());
     console.log(this.severeCasesByRequestedTime());
     if (this.remainingBedsByRequestedTime() > this.severeCasesByRequestedTime()) {
-      return this.remainingBedsByRequestedTime();
+      answer = this.remainingBedsByRequestedTime();
+    } else {
+      answer = this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime();
     }
-    return this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime();
+    return answer;
   }
 }
 export default ImpactEstimator;
