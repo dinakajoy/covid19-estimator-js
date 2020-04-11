@@ -40,7 +40,7 @@ class ImpactEstimator {
   severeCasesByRequestedTime() {
     const severePositiveCases = this.infectionsByRequestedTime() * 0.15;
     // return Math.trunc(severePositiveCases);
-    return severePositiveCases;
+    return Math.trunc(severePositiveCases);
   }
 
   remainingBedsByRequestedTime() {
@@ -54,7 +54,7 @@ class ImpactEstimator {
     if (this.remainingBedsByRequestedTime() > this.severeCasesByRequestedTime()) {
       answer = this.remainingBedsByRequestedTime();
     } else {
-      answer = this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime();
+      answer = Math.trunc(this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime());
     }
     return answer;
   }
