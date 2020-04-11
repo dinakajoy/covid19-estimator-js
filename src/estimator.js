@@ -3,9 +3,8 @@ import ImpactEstimator from './classes/ImpactEstimator';
 import SevereImpactEstimator from './classes/SevereImpactEstimator';
 
 const covid19ImpactEstimator = (data) => {
-  const { periodType, timeToElapse, reportedCases } = data;
-  const impact = new ImpactEstimator(periodType, timeToElapse, reportedCases);
-  const severeImpact = new SevereImpactEstimator(periodType, timeToElapse, reportedCases);
+  const impact = new ImpactEstimator(data);
+  const severeImpact = new SevereImpactEstimator(data);
   return {
     impact: {
       currentlyInfected: impact.currentlyInfected(),

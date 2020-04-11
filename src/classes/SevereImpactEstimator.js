@@ -1,8 +1,10 @@
 class SevereImpactEstimator {
-  constructor(periodType, timeToElapse, reportedCases) {
-    this.periodType = periodType;
-    this.timeToElapse = timeToElapse;
-    this.reportedCases = reportedCases;
+  constructor(data) {
+    this.periodType = data.periodType;
+    this.timeToElapse = data.timeToElapse;
+    this.reportedCases = data.reportedCases;
+    this.population = data.population;
+    this.totalHospitalBeds = data.totalHospitalBeds;
   }
 
   requestedTime() {

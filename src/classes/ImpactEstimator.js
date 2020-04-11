@@ -1,9 +1,10 @@
 class ImpactEstimator {
-  constructor(periodType, timeToElapse, reportedCases, totalHospitalBeds) {
-    this.periodType = periodType;
-    this.timeToElapse = timeToElapse;
-    this.reportedCases = reportedCases;
-    this.totalHospitalBeds = totalHospitalBeds;
+  constructor(data) {
+    this.periodType = data.periodType;
+    this.timeToElapse = data.timeToElapse;
+    this.reportedCases = data.reportedCases;
+    this.population = data.population;
+    this.totalHospitalBeds = data.totalHospitalBeds;
   }
 
   requestTime() {
