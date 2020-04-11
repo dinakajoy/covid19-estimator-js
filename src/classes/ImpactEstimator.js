@@ -40,11 +40,11 @@ class ImpactEstimator {
 
   severeCasesByRequestedTime() {
     const positiveCases = this.infectionsByRequestedTime();
-    return Math.trunc((15 / 100) * positiveCases);
+    return (15 / 100) * positiveCases;
   }
 
   remainingBedsByRequestedTime() {
-    return Math.trunc((35 / 100) * this.totalHospitalBeds);
+    return (35 / 100) * this.totalHospitalBeds;
   }
 
   hospitalBedsByRequestedTime() {
