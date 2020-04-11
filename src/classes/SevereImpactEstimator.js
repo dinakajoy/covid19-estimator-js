@@ -42,13 +42,13 @@ class SevereImpactEstimator {
   severeCasesByRequestedTime() {
     const severePositiveCases = (15 / 100) * this.infectionsByRequestedTime();
     console.log(severePositiveCases);
-    return severePositiveCases;
+    return Math.trunc(severePositiveCases);
   }
 
   remainingBedsByRequestedTime() {
     const remainingBeds = (35 / 100) * this.totalHospitalBeds;
     console.log(remainingBeds);
-    return remainingBeds;
+    return Math.trunc(remainingBeds);
   }
 
   hospitalBedsByRequestedTime() {
