@@ -40,22 +40,25 @@ class SevereImpactEstimator {
   }
 
   severeCasesByRequestedTime() {
-    const severePositiveCases = 0.15 * this.infectionsByRequestedTime();
-    return Math.trunc(severePositiveCases);
+    const severePositiveCases = this.infectionsByRequestedTime() * 0.15;
+    // return Math.trunc(severePositiveCases);
+    return severePositiveCases;
   }
 
   remainingBedsByRequestedTime() {
-    const remainingBeds = 0.35 * this.totalHospitalBeds;
-    return Math.trunc(remainingBeds);
+    const remainingBeds = this.totalHospitalBeds * 0.35;
+    // return Math.trunc(remainingBeds);
+    return remainingBeds;
   }
 
   hospitalBedsByRequestedTime() {
-    console.log(this.remainingBedsByRequestedTime());
-    console.log(this.severeCasesByRequestedTime());
+    let answer;
     if (this.remainingBedsByRequestedTime() > this.severeCasesByRequestedTime()) {
-      return this.remainingBedsByRequestedTime();
+      answer = this.remainingBedsByRequestedTime();
+    } else {
+      answer = this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime();
     }
-    return this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime();
+    return answer;
   }
 }
 export default SevereImpactEstimator;
