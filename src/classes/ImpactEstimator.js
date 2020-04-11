@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 class ImpactEstimator {
   constructor(periodType, timeToElapse, reportedCases) {
     this.periodType = periodType;
