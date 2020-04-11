@@ -57,6 +57,7 @@ class SevereImpactEstimator {
     if (this.remainingBedsByRequestedTime() > this.severeCasesByRequestedTime()) {
       return this.remainingBedsByRequestedTime();
     }
+    console.log(this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime());
     return this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime();
   }
 }
