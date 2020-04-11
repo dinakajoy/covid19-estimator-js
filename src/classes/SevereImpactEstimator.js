@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 class SevereImpactEstimator {
   constructor(data) {
     this.periodType = data.periodType;
@@ -40,11 +41,13 @@ class SevereImpactEstimator {
 
   severeCasesByRequestedTime() {
     const severePositiveCases = (15 / 100) * this.infectionsByRequestedTime();
+    console.log(severePositiveCases);
     return severePositiveCases;
   }
 
   remainingBedsByRequestedTime() {
     const remainingBeds = (35 / 100) * this.totalHospitalBeds;
+    console.log(remainingBeds);
     return remainingBeds;
   }
 
