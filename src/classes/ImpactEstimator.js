@@ -75,7 +75,9 @@ class ImpactEstimator {
 
   dollarsInFlight() {
     const days = this.requestTime();
-    const perInfectedReg = this.infectionsByRequestedTime() * (this.avgDailyIncomePopulation * 100);
+    console.log(`Population ${this.avgDailyIncomePopulation}`);
+    const percentOfIncomePopulation = Math.trunc(this.avgDailyIncomePopulation * 100);
+    const perInfectedReg = Math.trunc(this.infectionsByRequestedTime() * percentOfIncomePopulation);
     return Math.trunc((perInfectedReg * this.avgDailyIncomeInUSD) / days);
   }
 }
