@@ -64,17 +64,17 @@ class SevereImpactEstimator {
   }
 
   casesForICUByRequestedTime() {
-    return Math.trunc(0.5 * this.infectionsByRequestedTime);
+    return Math.trunc(0.05 * this.infectionsByRequestedTime());
   }
 
   casesForVentilatorsByRequestedTime() {
-    return Math.trunc(0.2 * this.infectionsByRequestedTime);
+    return Math.trunc(0.02 * this.infectionsByRequestedTime());
   }
 
   dollarsInFlight() {
     const days = this.requestTime();
-    const percInfectedRegion = this.infectionsByRequestedTime() * (this.avgDailyIncomeInUSD * 100);
-    return Math.trunc((percInfectedRegion * this.avgDailyIncomeInUSD) / days);
+    const perInfectedReg = this.infectionsByRequestedTime() * (this.avgDailyIncomePopulation * 100);
+    return Math.trunc((perInfectedReg * this.avgDailyIncomeInUSD) / days);
   }
 }
 export default SevereImpactEstimator;
