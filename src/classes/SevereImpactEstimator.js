@@ -75,10 +75,12 @@ class SevereImpactEstimator {
 
   dollarsInFlight() {
     const days = this.requestTime();
-    console.log(`Population ${this.avgDailyIncomePopulation}`);
+    console.log(`days ${days}`);
     const percentOfIncomePopulation = this.avgDailyIncomePopulation * 100;
+    console.log(`percentOfIncomePopulation ${percentOfIncomePopulation}`);
     const perInfectedReg = this.infectionsByRequestedTime() * percentOfIncomePopulation;
-    console.log((perInfectedReg * this.avgDailyIncomeInUSD) / days);
+    console.log(`perInfectedReg ${perInfectedReg}`);
+    console.log(`dollarsInFlight ${Math.trunc((perInfectedReg * this.avgDailyIncomeInUSD) / days)}`);
     return Math.trunc((perInfectedReg * this.avgDailyIncomeInUSD) / days);
   }
 }
