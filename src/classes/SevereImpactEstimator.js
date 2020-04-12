@@ -73,8 +73,8 @@ class SevereImpactEstimator {
 
   dollarsInFlight() {
     const days = this.requestTime();
-    const percentOfRegion = this.avgDailyIncomeInUSD * 100;
-    return percentOfRegion * this.avgDailyIncomeInUSD * days;
+    const percInfectedRegion = this.infectionsByRequestedTime() * (this.avgDailyIncomeInUSD * 100);
+    return Math.trunc((percInfectedRegion * this.avgDailyIncomeInUSD) / days);
   }
 }
 export default SevereImpactEstimator;
