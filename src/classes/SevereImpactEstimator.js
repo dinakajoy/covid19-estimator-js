@@ -64,10 +64,12 @@ class SevereImpactEstimator {
   }
 
   casesForICUByRequestedTime() {
+    // calculates 5% of infectionsByRequestedTime()
     return Math.trunc(0.05 * this.infectionsByRequestedTime());
   }
 
   casesForVentilatorsByRequestedTime() {
+    // calculates 2% of infectionsByRequestedTime()
     return Math.trunc(0.02 * this.infectionsByRequestedTime());
   }
 

@@ -64,11 +64,13 @@ class ImpactEstimator {
   }
 
   casesForICUByRequestedTime() {
-    return Math.trunc(0.5 * this.infectionsByRequestedTime());
+    // calculates 5% of infectionsByRequestedTime()
+    return Math.trunc(0.05 * this.infectionsByRequestedTime());
   }
 
   casesForVentilatorsByRequestedTime() {
-    return Math.trunc(0.2 * this.infectionsByRequestedTime());
+    // calculates 2% of infectionsByRequestedTime()
+    return Math.trunc(0.02 * this.infectionsByRequestedTime());
   }
 
   dollarsInFlight() {
