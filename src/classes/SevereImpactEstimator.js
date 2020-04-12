@@ -1,54 +1,53 @@
 /* eslint-disable no-console */
 class SevereImpactEstimator {
   constructor(data) {
+    this.avgDailyIncomeInUSD = data.region.avgDailyIncomeInUSD;
+    this.avgDailyIncomePopulation = data.region.avgDailyIncomePopulation;
+    this.periodType = data.periodType;
     this.periodType = data.periodType;
     this.timeToElapse = data.timeToElapse;
     this.reportedCases = data.reportedCases;
-    this.population = data.population;
+    // this.population = data.population;
     this.totalHospitalBeds = data.totalHospitalBeds;
   }
 
-  requestedTime() {
+  // SUB METHODS THAT RETURNS VALUE TO BE USED BY MAIN METHODS
+  requestTime() {
     let days;
     if (this.periodType === 'days') {
-      if (this.timeToElapse > 2) {
-        days = Math.trunc(this.timeToElapse / 3);
-      } else {
-        days = 1;
-      }
+      days = this.timeToElapse;
     }
     if (this.periodType === 'weeks') {
       // Converts timeToElapse in weeks to days
-      const toDays = this.timeToElapse * 7;
-      days = Math.trunc(toDays / 3);
+      days = this.timeToElapse * 7;
     }
     if (this.periodType === 'months') {
       // Converts timeToElapse in months to days
-      const toDays = this.timeToElapse * 30;
-      days = Math.trunc(toDays / 3);
+      days = this.timeToElapse * 30;
     }
     return days;
   }
 
+  remainingBedsByRequestedTime() {
+    return 0.35 * this.totalHospitalBeds;
+  }
+
+  // MAIN METHODS
   currentlyInfected() {
     return this.reportedCases * 50;
   }
 
   infectionsByRequestedTime() {
-    const lengthInDays = this.requestedTime();
-    return (this.reportedCases * 50) * (2 ** lengthInDays);
+    const days = this.requestTime();
+    if (days < 3) {
+      return Math.trunc((this.reportedCases * 10) * (2 ** 1));
+    }
+    const daysByThrees = Math.trunc(days / 3);
+    return Math.trunc((this.reportedCases * 10) * (2 ** daysByThrees));
   }
 
   severeCasesByRequestedTime() {
-    const severePositiveCases = this.infectionsByRequestedTime() * 0.15;
-    // return Math.trunc(severePositiveCases);
-    return Math.trunc(severePositiveCases);
-  }
-
-  remainingBedsByRequestedTime() {
-    const remainingBeds = this.totalHospitalBeds * 0.35;
-    // return Math.trunc(remainingBeds);
-    return remainingBeds;
+    return Math.trunc(this.infectionsByRequestedTime() * 0.15);
   }
 
   hospitalBedsByRequestedTime() {
@@ -59,6 +58,20 @@ class SevereImpactEstimator {
       answer = Math.trunc(this.remainingBedsByRequestedTime() - this.severeCasesByRequestedTime());
     }
     return answer;
+  }
+
+  casesForICUByRequestedTime() {
+    return Math.trunc(0.5 * this.infectionsByRequestedTime);
+  }
+
+  casesForVentilatorsByRequestedTime() {
+    return Math.trunc(0.2 * this.infectionsByRequestedTime);
+  }
+
+  dollarsInFlight() {
+    const days = this.requestTime();
+    const percentOfRegion = this.avgDailyIncomeInUSD * 100;
+    return percentOfRegion * this.avgDailyIncomeInUSD * days;
   }
 }
 export default SevereImpactEstimator;

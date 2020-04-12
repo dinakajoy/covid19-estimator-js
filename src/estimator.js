@@ -10,13 +10,17 @@ const covid19ImpactEstimator = (data) => {
       currentlyInfected: impact.currentlyInfected(),
       infectionsByRequestedTime: impact.infectionsByRequestedTime(),
       severeCasesByRequestedTime: impact.severeCasesByRequestedTime(),
-      hospitalBedsByRequestedTime: impact.hospitalBedsByRequestedTime()
+      hospitalBedsByRequestedTime: impact.hospitalBedsByRequestedTime(),
+      casesForICUByRequestedTime: impact.casesForICUByRequestedTime(),
+      casesForVentilatorsByRequestedTime: impact.casesForVentilatorsByRequestedTime()
     },
     severeImpact: {
       currentlyInfected: severeImpact.currentlyInfected(),
       infectionsByRequestedTime: severeImpact.infectionsByRequestedTime(),
       severeCasesByRequestedTime: severeImpact.severeCasesByRequestedTime(),
-      hospitalBedsByRequestedTime: severeImpact.hospitalBedsByRequestedTime()
+      hospitalBedsByRequestedTime: severeImpact.hospitalBedsByRequestedTime(),
+      casesForICUByRequestedTime: severeImpact.casesForICUByRequestedTime(),
+      casesForVentilatorsByRequestedTime: severeImpact.casesForVentilatorsByRequestedTime()
     }
   };
 };
