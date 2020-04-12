@@ -29,6 +29,7 @@ class ImpactEstimator {
   }
 
   remainingBedsByRequestedTime() {
+    // calculates 35% of totalHospitalBeds
     return 0.35 * this.totalHospitalBeds;
   }
 
@@ -40,14 +41,16 @@ class ImpactEstimator {
   infectionsByRequestedTime() {
     const days = this.requestTime();
     if (days < 3) {
-      return Math.trunc((this.reportedCases * 10) * (2 ** 1));
+      // No need for computation since it doubles every 3 days
+      return this.currentlyInfected();
     }
     const daysByThrees = Math.trunc(days / 3);
-    return Math.trunc((this.reportedCases * 10) * (2 ** daysByThrees));
+    return this.currentlyInfected() * (2 ** daysByThrees);
   }
 
   severeCasesByRequestedTime() {
-    return Math.trunc(this.infectionsByRequestedTime() * 0.15);
+    // calculates 15% of infectionsByRequestedTime()
+    return Math.trunc(0.15 * this.infectionsByRequestedTime());
   }
 
   hospitalBedsByRequestedTime() {
