@@ -41,8 +41,7 @@ class ImpactEstimator {
   infectionsByRequestedTime() {
     const days = this.requestTime();
     if (days < 3) {
-      // No need for computation since it doubles every 3 days
-      return this.currentlyInfected();
+      return this.currentlyInfected() * (2 ** 1);
     }
     const daysByThrees = Math.trunc(days / 3);
     return this.currentlyInfected() * (2 ** daysByThrees);
