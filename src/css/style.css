@@ -1,0 +1,100 @@
+*, *::before, *::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f4;
+  color: #333333;
+}
+.header {
+  background-color: #F7C6A5;
+  color: #521817;
+}
+.title {
+  background-color: #521817;
+  color: #f4f4f4;
+  padding: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.description {
+  padding: 30px;
+  text-align: justify;
+  line-height: 1.8;
+  border-bottom: 3px solid #521817;
+}
+.description span {
+  font-size: larger;
+  font-weight: bolder;
+}
+.description ol {
+  display: none;
+  padding: 0 40px;
+}
+.description li {
+  text-align: left;
+}
+.main {
+  width: 90%;
+  margin: 70px auto;
+  text-align: center;
+}
+.form {
+  text-align: left;
+}
+.form-group {
+  margin: 20px auto;
+}
+.form label {
+  width: 100%;
+}
+.form input, .form select {
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+}
+.form input:focus, .form select:focus {
+  border-color: #521817;
+  outline: 0;
+}
+input[type='submit'] {
+  background-color: #521817;
+  color: #f4f4f4;
+  padding: 17px;
+  border: 0;
+  border-radius: 10px;
+}
+.footer {
+  background-color: #521817;
+  color: #f4f4f4;
+  padding: 10px;
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .main {
+    width: 70%;
+  }
+  .description ol {
+    display: block;
+  }
+  .description ol li:nth-child(2) {
+    display: none;
+  }
+}
+@media (min-width: 800px) {
+  .main {
+    width: 60%;
+  }
+  .description ol li:nth-child(2) {
+    display: block;
+  }
+}
+@media (min-width: 1000px) {
+  .main {
+    width: 50%;
+  }
+  .description ol li:nth-child(2) {
+    display: block;
+  }
+}
