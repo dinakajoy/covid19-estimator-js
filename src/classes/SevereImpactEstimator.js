@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 class SevereImpactEstimator {
   constructor(data) {
     this.avgDailyIncomeInUSD = data.region.avgDailyIncomeInUSD;
@@ -7,7 +6,7 @@ class SevereImpactEstimator {
     this.periodType = data.periodType;
     this.timeToElapse = data.timeToElapse;
     this.reportedCases = data.reportedCases;
-    // this.population = data.population;
+    this.population = data.population;
     this.totalHospitalBeds = data.totalHospitalBeds;
   }
 
@@ -74,7 +73,6 @@ class SevereImpactEstimator {
 
   dollarsInFlight() {
     const days = this.requestTime();
-    // const percentOfIncomePop = this.avgDailyIncomePopulation * 100;
     const percentOfIncomePop = this.avgDailyIncomePopulation;
     const amount = this.infectionsByRequestedTime() * percentOfIncomePop * this.avgDailyIncomeInUSD;
     return Math.trunc(amount / days);
