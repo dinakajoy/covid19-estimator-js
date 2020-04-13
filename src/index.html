@@ -31,15 +31,15 @@
         </div>
         <div class="form-group">
           <label for="averageAge">Average Age: </label>
-          <input type="number" name="averageAge" data-average-age id="averageAge">
+          <input type="text" name="averageAge" data-average-age id="averageAge">
         </div>
         <div class="form-group">
           <label for="averageDailyIncomeInUSD">Average Daily Income In USD: </label>
-          <input type="number" name="averageDailyIncomeInUSD" data-average-daily-income-in-usd id="averageDailyIncomeInUSD">
+          <input type="text" name="averageDailyIncomeInUSD" data-average-daily-income-in-usd id="averageDailyIncomeInUSD">
         </div>
         <div class="form-group">
           <label for="averageDailyIncomePopulation">Average Daily Income Population: </label>
-          <input type="number" name="averageDailyIncomePopulation" data-average-daily-income-population id="averageDailyIncomePopulation">
+          <input type="text" name="averageDailyIncomePopulation" data-average-daily-income-population id="averageDailyIncomePopulation">
         </div>
         <div class="form-group">
           <label for="periodType">Period Type: *</label>
@@ -74,13 +74,6 @@
     <small>Developed By Odinaka Joy - #BuildforSDG Challenge 2020</small>
   </footer>
 
-  <!-- <script src="./estimator.js"></script> -->
-  <script>
-    import covid19ImpactEstimator from './estimator.js';
-    const submit = document.querySelector('#data-go-estimate');
-    submit.addEventListener('click', () => {
-      console.log('123');
-    });
-  </script>
+  <script type="module" src="./estimator.js"></script>
 </body>
 </html>

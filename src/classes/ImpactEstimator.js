@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 class ImpactEstimator {
   constructor(data) {
     this.avgDailyIncomeInUSD = data.region.avgDailyIncomeInUSD;
@@ -74,7 +73,6 @@ class ImpactEstimator {
 
   dollarsInFlight() {
     const days = this.requestTime();
-    // const percentOfIncomePop = this.avgDailyIncomePopulation * 100;
     const percentOfIncomePop = this.avgDailyIncomePopulation;
     const amount = this.infectionsByRequestedTime() * percentOfIncomePop * this.avgDailyIncomeInUSD;
     return Math.trunc(amount / days);
