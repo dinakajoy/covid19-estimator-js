@@ -98,3 +98,11 @@ input[type='submit'] {
     display: block;
   }
 }
+
+/* Output Styles */
+.output {
+  display: none;
+  padding: 20%;
+  background-color: green;
+  color: #ffffff;
+}

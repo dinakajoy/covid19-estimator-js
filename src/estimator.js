@@ -25,7 +25,10 @@ const covid19ImpactEstimator = (data) => {
       dollarsInFlight: severeImpact.dollarsInFlight()
     }
   };
-  // console.log(output);
+  const res = document.querySelector('#output');
+  res.innerHTML = output;
+  res.style.display = 'block';
+
   return output;
 };
 
