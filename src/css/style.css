@@ -102,7 +102,7 @@ input[type='submit'] {
 /* Output Styles */
 .output {
   display: none;
-  padding: 20%;
+  padding: 10px;
   background-color: green;
   color: #ffffff;
 }

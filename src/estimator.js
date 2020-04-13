@@ -1,5 +1,6 @@
-import ImpactEstimator from './classes/ImpactEstimator';
-import SevereImpactEstimator from './classes/SevereImpactEstimator';
+/* eslint-disable import/extensions */
+import ImpactEstimator from './classes/ImpactEstimator.js';
+import SevereImpactEstimator from './classes/SevereImpactEstimator.js';
 
 const covid19ImpactEstimator = (data) => {
   const impact = new ImpactEstimator(data);
@@ -25,10 +26,10 @@ const covid19ImpactEstimator = (data) => {
       dollarsInFlight: severeImpact.dollarsInFlight()
     }
   };
-  const res = document.querySelector('#output');
-  res.innerHTML = output;
-  res.style.display = 'block';
 
+  const res = document.querySelector('#output');
+  res.innerHTML = JSON.stringify(output, undefined, '\t');
+  res.style.display = 'block';
   return output;
 };
 
@@ -60,6 +61,9 @@ const processInput = () => {
 };
 
 const submit = document.querySelector('#data-go-estimate');
-submit.addEventListener('click', processInput);
+submit.addEventListener('click', (e) => {
+  e.preventDefault();
+  processInput();
+});
 
 export default covid19ImpactEstimator;
