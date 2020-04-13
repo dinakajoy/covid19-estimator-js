@@ -6,7 +6,7 @@ class SevereImpactEstimator {
     this.periodType = data.periodType;
     this.timeToElapse = data.timeToElapse;
     this.reportedCases = data.reportedCases;
-    // this.population = data.population;
+    this.population = data.population;
     this.totalHospitalBeds = data.totalHospitalBeds;
   }
 

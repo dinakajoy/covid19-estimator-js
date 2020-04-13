@@ -28,7 +28,7 @@ const covid19ImpactEstimator = (data) => {
   };
 
   const res = document.querySelector('#output');
-  res.innerHTML = JSON.stringify(output, undefined, '\t');
+  res.innerHTML = JSON.stringify(output, null, 4);
   res.style.display = 'block';
   return output;
 };
