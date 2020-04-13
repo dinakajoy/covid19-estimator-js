@@ -25,7 +25,6 @@ const covid19ImpactEstimator = (data) => {
       dollarsInFlight: severeImpact.dollarsInFlight()
     }
   };
-  // console.log(output);
   return output;
 };
 
@@ -57,6 +56,9 @@ const processInput = () => {
 };
 
 const submit = document.querySelector('#data-go-estimate');
-submit.addEventListener('click', processInput);
+submit.addEventListener('click', (e) => {
+  e.preventDefault();
+  processInput();
+});
 
 export default covid19ImpactEstimator;
