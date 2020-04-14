@@ -21,9 +21,9 @@
     </section>
   </header>
   <main class="main">
-    <h2>Please Fill In The Form To Get Accurate Details Of Impact In Your Region</h2>
-    <section class="form">
-      <form action="">
+    <section class="form" id="form">
+      <h2>Please Fill In The Form To Get Accurate Details Of Impact In Your Region</h2>
+      <form action="" method="post">
         <p>All Fields with asterisks are compulsory</p>
         <div class="form-group">
           <label for="country">Country: </label>
@@ -51,25 +51,24 @@
         </div>
         <div class="form-group">
           <label for="timeToElapse">Time To Elapse: *</label>
-          <input type="number" name="timeToElapse" required data-time-to-elapse id="timeToElapse">
+          <input type="number" name="timeToElapse" data-time-to-elapse id="timeToElapse" required>
         </div>
         <div class="form-group">
           <label for="reportedCases">Reported Cases: *</label>
-          <input type="number" name="reportedCases" required data-reported-cases id="reportedCases">
+          <input type="number" name="reportedCases" data-reported-cases id="reportedCases" required>
         </div>
         <div class="form-group">
           <label for="population">Population: *</label>
-          <input type="number" name="population" required data-population id="population">
+          <input type="number" name="population" data-population id="population" required>
         </div>
         <div class="form-group">
           <label for="totalHopitalBeds">Total Hopital Beds: *</label>
-          <input type="number" name="totalHopitalBeds" required data-total-hospital-beds id="totalHopitalBeds">
+          <input type="number" name="totalHopitalBeds" data-total-hospital-beds id="totalHopitalBeds" required>
         </div>
         <br />
-        <input type="submit" value="Submit" id="data-go-estimate" data-go-estimate>
+        <input id="data-go-estimate" data-go-estimate type="submit" value="Submit">
       </form>
     </section>
-    <br />
     <div class="output" id="output"></div>
   </main>
   <footer class="footer">

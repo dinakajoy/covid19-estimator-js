@@ -5,6 +5,7 @@
 body {
   background-color: #f4f4f4;
   color: #333333;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .header {
   background-color: #F7C6A5;
@@ -109,8 +110,16 @@ input[type='submit'] {
   padding: 10px;
   background-color: green;
   color: #ffffff;
-}
-.output ul {
-  list-style-type: none;
   text-align: left;
+}
+.btn {
+  background-color: #F7C6A5;
+  color: #521817;
+  padding: 5px;
+  text-align: center;
+  border: 2px solid #F7C6A5;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  cursor: pointer;
 }

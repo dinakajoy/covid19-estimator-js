@@ -1,8 +1,12 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/extensions */
 import covid19ImpactEstimator from '../../src/estimator.js';
 
-// Inputed data
-const processInput = () => {
+const submit = document.querySelector('#data-go-estimate');
+const form = document.querySelector('#form');
+submit.addEventListener('click', (e) => {
+  e.preventDefault();
+  // Inputed data
   const name = document.querySelector('#country').value;
   const avgAge = document.querySelector('#averageAge').value;
   const avgDailyIncomeInUSD = document.querySelector('#averageDailyIncomeInUSD').value;
@@ -12,6 +16,10 @@ const processInput = () => {
   const reportedCases = document.querySelector('#reportedCases').value;
   const population = document.querySelector('#population').value;
   const totalHospitalBeds = document.querySelector('#totalHopitalBeds').value;
+  if (timeToElapse.length < 1 || reportedCases < 1) {
+    alert('Please Enter All Values');
+    return false;
+  }
   const data = {
     region: {
       name,
@@ -28,27 +36,13 @@ const processInput = () => {
 
   const output = covid19ImpactEstimator(data);
   const res = document.querySelector('#output');
-  const result = `<h2>COVID19 Estimate Details</h2><br>
-    <ul>
-      <li><strong>Name: </strong>${data.region.name}</li>
-      <li><strong>Average Age: </strong>${data.region.avgAge}</li>
-      <li><strong>Average Daily Income In USD: </strong>${data.region.avgDailyIncomeInUSD}</li>
-      <li><strong>Average Daily Income Population: </strong>${data.region.avgDailyIncomePopulation}</li>
-      <li><strong>Period Type: </strong>${data.periodType}</li>
-      <li><strong>Time To Elapse: </strong>${data.timeToElapse}</li>
-      <li><strong>Reported Cases: </strong>${data.reportedCases}</li>
-      <li><strong>Population: </strong>${data.population}</li>
-      <li><strong>Total Hospital Beds: </strong>${data.totalHospitalBeds}</li>
-    </ul>`;
-  res.innerHTML = result;
+  submit.style.display = 'none';
+  form.style.display = 'none';
+  res.innerHTML = `
+    <h2>Here Is The Report On The Impact Of The Virus In ${data.region.name}</h2>
+    <pre>${JSON.stringify(output, null, 2)}</pre> <br /> <br /> 
+    <button class="btn" onclick="location.reload()">Reload</button>
+  `;
   res.style.display = 'block';
   return output;
-};
-
-const submit = document.querySelector('#data-go-estimate');
-submit.addEventListener('click', (e) => {
-  e.preventDefault();
-  processInput();
 });
-
-export default processInput;
