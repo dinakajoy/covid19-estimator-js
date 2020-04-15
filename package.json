@@ -5,19 +5,29 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "lint": "eslint ./src/"
+    "lint": "eslint ./src/",
+    "start": "node -r esm ./api/server.js",
+    "dev-server": "nodemon -r esm ./api/server.js"
   },
   "dependencies": {
-    "on-covid-19": "^0.1.3"
+    "body-parser": "^1.19.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "moongoose": "0.0.5",
+    "on-covid-19": "^0.1.3",
+    "request": "^2.88.2",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "babel-jest": "^25.2.0",
-    "jest": "^25.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.1"
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.2.0",
+    "nodemon": "^2.0.3"
   },
   "browserslist": [
     "last 1 Chrome versions"
