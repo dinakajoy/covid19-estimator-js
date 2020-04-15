@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Author: Odinaka Joy,
+    Description: This is a simple application that helps user calculate the impact and servere impact of corona-virus based on specified region">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Challeng Four | Build For SDG</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">Build For SDG Challenge</h1>
+    <section class="description">
+      <span>Description: </span>
+      The assessment empowers me to <strong>attempt</strong> helping society and leaders prepare for the <strong>real big problem</strong> of COVID-19, which is <strong>its impact on lives, health systems, supply chains, and the economy</strong>
+      <ol type="1">
+        <li>Too many patients, not enough hospitals and beds. A serious shortage of ventilators, masks and other PPE - if we donʼt practice social distancing.</li>
+        <li>Job losses or freezes, low cash flow and low production (even for essentials like food). These and more from too many people being sick, a sizable number dying (including some of the best people in many fields), and many others affected by the impact of losing loved ones or a world operating in slow motion</li>
+      </ol>
+    </section>
+  </header>
+  <main class="main">
+    <h2>Please Fill In The Form To Get Accurate Details Of Impact In Your Region</h2>
+    <section class="form">
+      <form action="">
+        <p>All Fields with asterisks are compulsory</p>
+        <div class="form-group">
+          <label for="country">Country: </label>
+          <input type="text" name="country" data-country id="country">
+        </div>
+        <div class="form-group">
+          <label for="averageAge">Average Age: </label>
+          <input type="text" name="averageAge" data-average-age id="averageAge">
+        </div>
+        <div class="form-group">
+          <label for="averageDailyIncomeInUSD">Average Daily Income In USD: </label>
+          <input type="text" name="averageDailyIncomeInUSD" data-average-daily-income-in-usd id="averageDailyIncomeInUSD">
+        </div>
+        <div class="form-group">
+          <label for="averageDailyIncomePopulation">Average Daily Income Population: </label>
+          <input type="text" name="averageDailyIncomePopulation" data-average-daily-income-population id="averageDailyIncomePopulation">
+        </div>
+        <div class="form-group">
+          <label for="periodType">Period Type: *</label>
+          <select name="periodType" data-period-type id="periodType">
+            <option value="days" selected>Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="months">Months</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="timeToElapse">Time To Elapse: *</label>
+          <input type="number" name="timeToElapse" required data-time-to-elapse id="timeToElapse">
+        </div>
+        <div class="form-group">
+          <label for="reportedCases">Reported Cases: *</label>
+          <input type="number" name="reportedCases" required data-reported-cases id="reportedCases">
+        </div>
+        <div class="form-group">
+          <label for="population">Population: *</label>
+          <input type="number" name="population" required data-population id="population">
+        </div>
+        <div class="form-group">
+          <label for="totalHopitalBeds">Total Hopital Beds: *</label>
+          <input type="number" name="totalHopitalBeds" required data-total-hospital-beds id="totalHopitalBeds">
+        </div>
+        <br />
+        <input type="submit" value="Submit" id="data-go-estimate" data-go-estimate>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <small>Developed By Odinaka Joy - #BuildforSDG Challenge 2020</small>
+  </footer>
+
+  <script type="module" src="./estimator.js"></script>
+</body>
+</html>
