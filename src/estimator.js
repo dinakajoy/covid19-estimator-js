@@ -6,7 +6,6 @@ const covid19ImpactEstimator = (data) => {
   const impact = new ImpactEstimator(data);
   const severeImpact = new SevereImpactEstimator(data);
   const output = {
-    data,
     impact: {
       currentlyInfected: impact.currentlyInfected(),
       infectionsByRequestedTime: impact.infectionsByRequestedTime(),

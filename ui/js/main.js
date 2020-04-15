@@ -4,6 +4,8 @@ import covid19ImpactEstimator from '../../src/estimator.js';
 
 const submit = document.querySelector('#data-go-estimate');
 const form = document.querySelector('#form');
+
+document.querySelector('#country').focus();
 submit.addEventListener('click', (e) => {
   e.preventDefault();
   // Inputed data
