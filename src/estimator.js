@@ -7,6 +7,7 @@ const covid19ImpactEstimator = (data) => {
   const severeImpact = new SevereImpactEstimator(data);
   const output = {
     impact: {
+      requestTime: impact.requestTime(),
       currentlyInfected: impact.currentlyInfected(),
       infectionsByRequestedTime: impact.infectionsByRequestedTime(),
       severeCasesByRequestedTime: impact.severeCasesByRequestedTime(),
@@ -16,6 +17,7 @@ const covid19ImpactEstimator = (data) => {
       dollarsInFlight: impact.dollarsInFlight()
     },
     severeImpact: {
+      requestTime: severeImpact.requestTime(),
       currentlyInfected: severeImpact.currentlyInfected(),
       infectionsByRequestedTime: severeImpact.infectionsByRequestedTime(),
       severeCasesByRequestedTime: severeImpact.severeCasesByRequestedTime(),

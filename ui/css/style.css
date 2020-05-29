@@ -1,5 +1,7 @@
 *, *::before, *::after {
   margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   box-sizing: border-box;
 }
 body {
@@ -35,13 +37,15 @@ body {
 .description li {
   text-align: left;
 }
-.main {
+.form {
   width: 90%;
   margin: 70px auto;
   text-align: center;
-}
-.form {
   text-align: left;
+}
+.form-title {
+  text-align: center;
+  margin: 20px auto;
 }
 .form-group {
   margin: 20px auto;
@@ -73,8 +77,8 @@ input[type='submit'] {
 }
 
 @media (min-width: 500px) {
-  .main {
-    width: 70%;
+  .form {
+    width: 75%;
   }
   .description ol {
     display: block;
@@ -84,8 +88,8 @@ input[type='submit'] {
   }
 }
 @media (min-width: 800px) {
-  .main {
-    width: 60%;
+  .form {
+    width: 70%;
   }
   .description ol li:nth-child(2) {
     display: block;
@@ -96,8 +100,8 @@ input[type='submit'] {
   }
 }
 @media (min-width: 1000px) {
-  .main {
-    width: 50%;
+  .form {
+    width: 60%;
   }
   .description ol li:nth-child(2) {
     display: block;
@@ -108,18 +112,33 @@ input[type='submit'] {
 .output {
   display: none;
   padding: 10px;
-  background-color: green;
-  color: #ffffff;
-  text-align: left;
+  color: #333;
+  text-align: center;
+  margin: 70px auto;
+}
+.output-title {
+  text-align: center;
+  margin: 20px auto;
 }
 .btn {
-  background-color: #F7C6A5;
+  background-color: rgb(192, 123, 123);
   color: #521817;
-  padding: 5px;
+  padding: 10px 30px;
   text-align: center;
   border: 2px solid #F7C6A5;
-  width: 100%;
+  /* width: 30%; */
   margin: 0 auto;
   border-radius: 10px;
   cursor: pointer;
+}
+.boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.box {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(241, 240, 240, 0.829);
+  box-shadow: 5px 5px 8px #333;
 }
