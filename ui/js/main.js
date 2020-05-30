@@ -6,46 +6,6 @@ const submit = document.querySelector('#data-go-estimate');
 const form = document.querySelector('#form');
 document.querySelector('#country').focus();
 
-const ctx = document.getElementById('myChart').getContext('2d');
-const ctx2 = document.createElement('div');
-ctx2.add
-const myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    }
-  }
-});
-
 submit.addEventListener('click', (e) => {
   e.preventDefault();
   // Inputed data
@@ -88,13 +48,34 @@ submit.addEventListener('click', (e) => {
       <div class="box"> Average Daily Income In USD <br /><br /> <strong>${data.region.avgDailyIncomeInUSD}</strong></div>
       <div class="box"> Average Daily Income Population <br /><br /> <strong>${data.region.avgDailyIncomePopulation}</strong></div>
 
-      <div class="box"> Reported Cases <br /><br /> <strong>${data.reportedCases}</strong></div>
       <div class="box"> Population <br /><br /> <strong>${data.population}</strong></div>
+      <div class="box"> Reported Cases <br /><br /> <strong>${data.reportedCases}</strong></div>
       <div class="box"> Time Before Report In Days <br /><br /> <strong>${output.impact.requestTime}</strong></div>
+
+      <div class="box"> Total Hospital Beds <br /><br /> <strong>${data.totalHospitalBeds}</strong></div>
+      <div class="box"> Available (+)/Required (-) Hospital Beds <br /><br /> <strong>${output.impact.hospitalBedsByRequestedTime}</strong></div>
+      <div class="box"> Available (+)/Required (-) Hospital Beds For Severe Impact<br /><br /> <strong>${output.severeImpact.hospitalBedsByRequestedTime}</strong></div>
     </div>
-
-    <div class="chrt">${hospitalBeds}</div>
-
+    <br /><br />
+    <h3>Impact Calculation</h3>
+    <div class="boxes">
+      <div class="box"> Population <br /><br /> <strong>${data.population}</strong></div>
+      <div class="box"> Currently Infected <br /><br /> <strong>${output.impact.currentlyInfected}</strong></div>
+      <div class="box"> Severe Cases <br /><br /> <strong>${output.impact.severeCasesByRequestedTime}</strong></div>
+      <div class="box"> Cases For ICU <br /><br /> <strong>${output.impact.casesForICUByRequestedTime}</strong></div>
+      <div class="box"> Cases For Ventilators <br /><br /> <strong>${output.impact.casesForVentilatorsByRequestedTime}</strong></div>
+      <div class="box"> Dollars in Flight <br /><br /> <strong>${output.impact.dollarsInFlight}</strong></div>
+    </div>
+    <br /><br />
+    <h3>Severe Impact Calculation</h3>
+    <div class="boxes">
+      <div class="box"> Population <br /><br /> <strong>${data.population}</strong></div>
+      <div class="box"> Currently Infected <br /><br /> <strong>${output.severeImpact.currentlyInfected}</strong></div>
+      <div class="box"> Severe Cases <br /><br /> <strong>${output.severeImpact.severeCasesByRequestedTime}</strong></div>
+      <div class="box"> Cases For ICU <br /><br /> <strong>${output.severeImpact.casesForICUByRequestedTime}</strong></div>
+      <div class="box"> Cases For Ventilators <br /><br /> <strong>${output.severeImpact.casesForVentilatorsByRequestedTime}</strong></div>
+      <div class="box"> Dollars in Flight <br /><br /> <strong>${output.severeImpact.dollarsInFlight}</strong></div>
+    </div>
     <br /><br />
     <button class="btn" onclick="location.reload()">Reload</button>
   `;
