@@ -13,7 +13,7 @@
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "esm": "^3.2.25",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http": "0.0.1-security",
     "moongoose": "0.0.5",
     "on-covid-19": "^0.1.3",
